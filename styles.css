@@ -1,0 +1,152 @@
+/* diseños del body en general */
+body {
+    display: flex;
+    margin: 0;
+    height: 100vh;
+}
+
+/* diseño del contenedor juego donde se desarrolla el juego */
+#juego {
+    flex: 0 0 80%;
+    background-color: coral;
+    display: grid;
+    /* tabla defecto de 16 de cartas 8x2*/
+    grid-template-columns: repeat(8, 1fr); 
+    grid-template-rows: repeat(2, 1fr); 
+    grid-gap: 2px;
+    justify-content: center;
+    align-content: center;
+    padding: 20px;
+    padding-top: 160px; 
+    height: 100%;
+    box-sizing: border-box;
+}
+
+/* diseño para contenedor de las cartas y efectos */
+.carta {
+    width: 100%;
+    height: 100%;
+    max-width: 120px;
+    max-height: 180px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+    perspective: 1000px; /* Perspectiva para efecto de volteo */
+}
+
+/* estilo para cuando se pasa el cursos por alguna carta hace que se agrande*/
+.carta:hover {
+    transform: scale(1.1);
+}
+
+/* estrctura de las carta tanto trasera como delantera para que ocupen el tamaño de la carta estéticamente */
+.cara.trasera img, .cara.delantera img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/*estilo para cuando una carta se voltea */
+.carta.volteada .delantera {
+    transform: rotateY(0deg); /* muestra cara delantera */
+}
+
+.carta.volteada .trasera {
+    transform: rotateY(-180deg); /* oculta cara trasera */
+}
+
+/* diseño de la cara */
+.cara {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden; 
+    transform: rotateY(0deg);
+    transition: transform 0.5s ease-in-out;
+}
+
+/* diseño y estilo para la carta trasera */
+.cara.trasera {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* diseño de la parte delantera que por defecto esta volteada */
+.cara.delantera {
+    transform: rotateY(180deg);
+}
+
+/* diseño del titulo ubicaco en la parte superior delcontenedor juego */
+.titulo {
+    color: white;
+    text-align: center;
+    font-size: xx-large;
+    margin: 0;
+    padding: 30px 0;
+    width: 80%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+/* ya que inicialmente el diseño esta configurado para 16 cartas, se añade un diseño para cuando sea 24 cartas agregandole una fila mas */
+#juego.juego-24 {
+    grid-template-rows: repeat(3, 1fr); /* 3 filas */
+    grid-gap: 1px;
+    padding-top: 120px;
+}
+
+/* diseño para el contenido de la seccion lateral ubicado a la izquierda*/
+#lateral {
+    flex: 0 0 20%;
+    background-color: #2dbb57;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+/* diseño y estilo de la indicacion o titulo */
+.indicacion {
+    color: white;
+    font-size: 1.5rem;
+    text-align: center;
+    margin: 155px 0 20px 0;
+}
+
+/* diseño base de los botones de la seccion lateral*/
+.botonLateral, .botonReiniciar {
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 100%;
+    max-width: 200px;
+    text-align: center;
+}
+
+/* diseño para cuando se pasa el cursor por los botones */
+.botonLateral:hover, .botonReiniciar:hover {
+    background-color: #bed82e;
+}
+
+/*diseño y estilos para el texto del temporizador y el contador de intentos */
+.intentos, .temporizador {
+    color: white;
+    font-size: 1.2rem;
+    text-align: center;
+    margin: 0;
+}
