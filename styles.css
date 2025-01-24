@@ -1,16 +1,16 @@
-/* Diseños del body en general */
+/* diseños del body en general */
 body {
     display: flex;
     margin: 0;
     height: 100vh;
 }
 
-/* Diseño del contenedor juego donde se desarrolla el juego */
+/* diseño del contenedor juego donde se desarrolla el juego */
 #juego {
     flex: 0 0 80%;
     background-color: coral;
     display: grid;
-    /* Tabla defecto de 16 de cartas 8x2 */
+    /* tabla defecto de 16 de cartas 8x2*/
     grid-template-columns: repeat(8, 1fr); 
     grid-template-rows: repeat(2, 1fr); 
     grid-gap: 2px;
@@ -22,7 +22,7 @@ body {
     box-sizing: border-box;
 }
 
-/* Diseño para contenedor de las cartas y efectos */
+/* diseño para contenedor de las cartas y efectos */
 .carta {
     width: 100%;
     height: 100%;
@@ -38,12 +38,12 @@ body {
     perspective: 1000px; /* Perspectiva para efecto de volteo */
 }
 
-/* Estilo para cuando se pasa el curso por alguna carta hace que se agrande */
+/* estilo para cuando se pasa el cursos por alguna carta hace que se agrande*/
 .carta:hover {
     transform: scale(1.1);
 }
 
-/* Estructura de la carta tanto trasera como delantera para que ocupen el tamaño de la carta estéticamente */
+/* estrctura de las carta tanto trasera como delantera para que ocupen el tamaño de la carta estéticamente */
 .cara.trasera img, .cara.delantera img {
     width: 100%;
     height: 100%;
@@ -51,16 +51,16 @@ body {
     border-radius: 8px;
 }
 
-/* Estilo para cuando una carta se voltea */
+/*estilo para cuando una carta se voltea */
 .carta.volteada .delantera {
-    transform: rotateY(0deg); /* Muestra cara delantera */
+    transform: rotateY(0deg); /* muestra cara delantera */
 }
 
 .carta.volteada .trasera {
-    transform: rotateY(-180deg); /* Oculta cara trasera */
+    transform: rotateY(-180deg); /* oculta cara trasera */
 }
 
-/* Diseño de la cara */
+/* diseño de la cara */
 .cara {
     position: absolute;
     width: 100%;
@@ -70,19 +70,19 @@ body {
     transition: transform 0.5s ease-in-out;
 }
 
-/* Diseño y estilo para la carta trasera */
+/* diseño y estilo para la carta trasera */
 .cara.trasera {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-/* Diseño de la parte delantera que por defecto está volteada */
+/* diseño de la parte delantera que por defecto esta volteada */
 .cara.delantera {
     transform: rotateY(180deg);
 }
 
-/* Diseño del título ubicado en la parte superior del contenedor juego */
+/* diseño del titulo ubicaco en la parte superior delcontenedor juego */
 .titulo {
     color: white;
     text-align: center;
@@ -96,14 +96,14 @@ body {
     right: 0;
 }
 
-/* Ya que inicialmente el diseño está configurado para 16 cartas, se añade un diseño para cuando sea 24 cartas agregando una fila más */
+/* ya que inicialmente el diseño esta configurado para 16 cartas, se añade un diseño para cuando sea 24 cartas agregandole una fila mas */
 #juego.juego-24 {
     grid-template-rows: repeat(3, 1fr); /* 3 filas */
     grid-gap: 40px;
     padding-top: 120px;
 }
 
-/* Diseño para el contenido de la sección lateral ubicada a la izquierda */
+/* diseño para el contenido de la seccion lateral ubicado a la izquierda*/
 #lateral {
     flex: 0 0 20%;
     background-color: #2dbb57;
@@ -115,7 +115,7 @@ body {
     gap: 20px;
 }
 
-/* Diseño y estilo de la indicación o título */
+/* diseño y estilo de la indicacion o titulo */
 .indicacion {
     color: white;
     font-size: 1.5rem;
@@ -123,7 +123,7 @@ body {
     margin: 155px 0 20px 0;
 }
 
-/* Diseño base de los botones de la sección lateral */
+/* diseño base de los botones de la seccion lateral*/
 .botonLateral, .botonReiniciar {
     padding: 10px 20px;
     font-size: 1rem;
@@ -138,12 +138,12 @@ body {
     text-align: center;
 }
 
-/* Diseño para cuando se pasa el cursor por los botones */
+/* diseño para cuando se pasa el cursor por los botones */
 .botonLateral:hover, .botonReiniciar:hover {
     background-color: #bed82e;
 }
 
-/* Diseño y estilos para el texto del temporizador y el contador de intentos */
+/*diseño y estilos para el texto del temporizador y el contador de intentos */
 .intentos, .temporizador {
     color: white;
     font-size: 1.2rem;
@@ -151,68 +151,3 @@ body {
     margin: 0;
 }
 
-/* Media query para pantallas pequeñas (móviles) */
-@media (max-width: 768px) {
-    #juego {
-        flex: 0 0 100%;
-        grid-template-columns: repeat(4, 1fr);  /* Reducir columnas a 4 */
-        grid-template-rows: repeat(4, 1fr);     /* Agregar más filas */
-        padding-top: 120px; /* Reducir padding en la parte superior */
-    }
-
-    .carta {
-        max-width: 90px;
-        max-height: 135px;
-    }
-
-    .titulo {
-        font-size: 1.5rem;
-        padding: 10px 0;
-    }
-
-    #lateral {
-        flex: 0 0 100%;
-        padding: 10px;
-        gap: 10px;
-    }
-
-    .indicacion {
-        font-size: 1rem;
-        margin: 100px 0 10px 0;
-    }
-
-    .botonLateral, .botonReiniciar {
-        font-size: 0.9rem;
-        padding: 8px 16px;
-        max-width: 100%;
-    }
-
-    .intentos, .temporizador {
-        font-size: 1rem;
-    }
-}
-
-/* Media query para pantallas extra pequeñas (dispositivos móviles muy pequeños) */
-@media (max-width: 480px) {
-    .carta {
-        max-width: 70px;
-        max-height: 105px;
-    }
-
-    .titulo {
-        font-size: 1.2rem;
-    }
-
-    .indicacion {
-        font-size: 0.9rem;
-    }
-
-    .botonLateral, .botonReiniciar {
-        font-size: 0.8rem;
-        padding: 6px 12px;
-    }
-
-    .intentos, .temporizador {
-        font-size: 0.9rem;
-    }
-}
