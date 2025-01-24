@@ -99,7 +99,7 @@ body {
 /* ya que inicialmente el diseño esta configurado para 16 cartas, se añade un diseño para cuando sea 24 cartas agregandole una fila mas */
 #juego.juego-24 {
     grid-template-rows: repeat(3, 1fr); /* 3 filas */
-    grid-gap: 2px;
+    grid-gap: 30px;
     padding-top: 120px;
 }
 
